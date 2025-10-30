@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class FundamentalProblems {
     public static void main( String args[]){
@@ -62,5 +60,45 @@ public class FundamentalProblems {
         }
         return true;
 
+    }
+    public int[] twoSum(int[] arr, int target){
+
+        HashMap<Integer, Integer> map=new HashMap<>();
+        for(int i=0;i<arr.length;i++){
+            int complement=target-arr[i];
+            if(map.containsKey(complement)){
+                return new int[]{i,map.get(complement)};
+            }
+            map.put(arr[i],i);
+
+        }
+        return new int[]{-1,-1};
+    }
+    public List<List<String>> groupAnagrams(String[] arr){
+        HashMap<String,List<String>> map=new HashMap<>();
+        for(String str:arr){
+            char[] st=str.toCharArray();
+            Arrays.sort(st);
+            String group=new String(st);
+            if (!map.containsKey(group)){
+                map.put(group,new ArrayList<>());
+            }
+            map.get(group).add(str);
+        }
+        return new ArrayList<>(map.values());
+    }
+
+    public boolean isAnagram(String s1,String s2){
+        if(s1.length()!=s2.length())return false;
+
+        char[] arr1=s1.toCharArray();
+        char[] arr2=s2.toCharArray();
+        Arrays.sort(arr1); Arrays.sort(arr2);
+        String str1=""; String str2="";
+        for(int i=0;i<arr1.length;i++){
+            str1+=arr1[i];
+            str2+=arr2[i];
+        }
+        return str1.equals(str2);
     }
 }
