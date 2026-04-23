@@ -4,6 +4,7 @@ import java.util.Arrays;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        int[] arr={1,3,4,3,9};
-        System.out.println(Arrays.toString(TwoSum.twoSum(arr,7)));        }
+        int[] arr={1,3,9,4,9};
+        System.out.println(Arrays.toString(TwoSum.twoSumOptimal(arr,7
+        )));        }
     }
